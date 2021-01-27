@@ -7,6 +7,7 @@ use App\Models\Kelurahan;
 use App\Models\Kecamatan;
 use App\Models\Kota;
 use App\Models\Provinsi;
+use App\Models\Tracking;
 use Livewire\Component;
 
 class HelloLivewire extends Component
