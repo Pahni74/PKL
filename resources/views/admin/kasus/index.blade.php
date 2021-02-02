@@ -8,7 +8,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('admin') }}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin') }}">Admin</a></li>
               <li class="breadcrumb-item"><a href="{{ route('negara.index') }}">Negara</a></li>
               <li class="breadcrumb-item active" aria-current="page">Kasus</li>
             </ol>
@@ -43,9 +43,9 @@
                                 @endif
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                        <tr>
+                                        <tr class="bg-blue">
                                             <th scope="col">No</th>
                                             <th scope="col">Jumlah Positif</th>
                                             <th scope="col">Jumlah Sembuh</th>
@@ -73,7 +73,7 @@
                                             @method('DELETE')
                                             <a href="{{route('kasus.show',$data->id)}}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
                                             <a class="btn btn-warning btn-sm btn-rounded " href="{{route('kasus.edit',$data->id)}}"> <i class="fa fa-edit"></i></a>
-                                            <button type="submit" class="btn btn-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></button>
+                                            <button type="submit" class="btn btn-danger btn-sm btn-rounded" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini?')"><i class="fa fa-trash"></i></button>
                                             </form>
                                             </td>
                                         </tr>
@@ -85,4 +85,22 @@
                     </div>
                 </div>
             </div>
+@endsection
+@section('js')
+<script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
 @endsection

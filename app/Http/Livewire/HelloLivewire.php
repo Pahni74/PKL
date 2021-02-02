@@ -17,8 +17,6 @@ class HelloLivewire extends Component
     public $kecamatan;
     public $kelurahan;
     public $rw;
-    public $tracking1;
-    public $idt;
 
     public $selectedProvinsi = null;
     public $selectedKota = null;
@@ -26,15 +24,11 @@ class HelloLivewire extends Component
     public $selectedKelurahan = null;
     public $selectedRw = null;
 
-    public function mount($selectedRw = null,$idt = null)
+    public function mount($selectedRw = null)
     {
         $this->provinsi = Provinsi::all();
         $this->selectedRw = $selectedRw;
-        $this->idt = $idt;
-        if (!is_null($idt)){
-            $this->tracking1 = Tracking::findOrFail($idt);
-        }
-        $this->kota = Kota::with('provinsi')->get();
+        $this->kota = Kota::whereHas('provinsi')->get();
         $this->kecamatan = Kecamatan::whereHas('kota', function ($query) {
             $query->whereId(request()->input('kota_id', 0));
         })->pluck('nama_kecamatan', 'id');
@@ -80,6 +74,7 @@ class HelloLivewire extends Component
         $this->selectedKecamatan = NULL;
         $this->selectedKelurahan = NULL;
         $this->selectedRw = NULL;
+
     }
 
     public function updatedSelectedKecamatan($kecamatan)

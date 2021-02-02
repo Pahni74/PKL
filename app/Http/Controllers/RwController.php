@@ -53,11 +53,6 @@ class RwController extends Controller
                     \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
                 }
                 return redirect()->route('rw.index');
-        // $rw = new Rw();
-        // $rw->kode_rw = $request->kode_rw;
-        // $rw->nama_rw = $request->nama_rw;
-        // $rw->kelurahan_id = $request->kelurahan_id;
-        // $rw->save();
     }
 
     /**
@@ -108,11 +103,6 @@ class RwController extends Controller
             \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
             }
             return redirect()->route('rw.index');
-        // $rw = Rw::findOrFail($id);
-        // $rw->kode_rw = $request->kode_rw;
-        // $rw->nama_rw = $request->nama_rw;
-        // $rw->kelurahan_id = $request->kelurahan_id;
-        // $rw->save();
     }
 
     /**
@@ -130,7 +120,5 @@ class RwController extends Controller
             \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route("rw.index");
-        // $rw = rw::findOrFail($id)->delete();
-        // return redirect()->route('rw.index')->with('sukses','Data Berhasil Di Hapus');
     }
 }

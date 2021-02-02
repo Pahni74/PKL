@@ -53,11 +53,6 @@ class KotaController extends Controller
             \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
         }
         return redirect()->route('kota.index');
-        // $kota = new Kota();
-        // $kota->kode_kota = $request->kode_kota;
-        // $kota->nama_kota = $request->nama_kota;
-        // $kota->provinsi_id = $request->provinsi_id;
-        // $kota->save();
     }
 
     /**
@@ -108,11 +103,6 @@ class KotaController extends Controller
             \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
             }
             return redirect()->route('kota.index');
-        // $kota = Kota::findOrFail($id);
-        // $kota->kode_kota = $request->kode_kota;
-        // $kota->nama_kota = $request->nama_kota;
-        // $kota->provinsi_id = $request->provinsi_id;
-        // $kota->save();
     }
 
     /**
@@ -130,7 +120,6 @@ class KotaController extends Controller
             \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route("kota.index");
-        // $kota = kota::findOrFail($id)->delete();
-        // return redirect()->route('kota.index')->with('sukses','Data Berhasil Di Hapus');
+
     }
 }

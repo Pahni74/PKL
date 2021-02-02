@@ -3,7 +3,7 @@
 
   <!-- Sidebar Menu -->
   <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
         <li class="nav-item">
             <a href="{{ route('admin') }}" class="nav-link">
                 <i class="fas fa-home"></i>
@@ -11,31 +11,31 @@
             </a>
         </li>
         <li class="nav-header"><strong>Master Data</strong></li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-            <i class="far fa-flag"></i>
-            <p>
-            Negara
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{ route('negara.index') }}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>List Negara</p>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="fas fa-flag"></i>
+                <p>
+                Negara
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('negara.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Negara</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('kasus.index') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kasus Negara</p>
+                  </a>
+                </li>
+              </ul>
           </li>
-        </ul>
-        <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{ route('kasus.index') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Kasus</p>
-              </a>
-            </li>
-          </ul>
-      </li>
       <li class="nav-item">
         <a href="#" class="nav-link">
             <i class="fas fa-building"></i>
@@ -57,7 +57,7 @@
         <a href="#" class="nav-link">
             <i class="fas fa-city"></i>
             <p>
-            Kota
+            Kabupaten / Kota
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
@@ -65,7 +65,7 @@
           <li class="nav-item">
             <a href="{{ route('kota.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>List Kota</p>
+              <p>List Kabupaten / Kota</p>
             </a>
           </li>
         </ul>
@@ -91,7 +91,7 @@
         <a href="#" class="nav-link">
             <i class="fas fa-building"></i>
             <p>
-            Kelurahan
+            Kelurahan / Desa
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
@@ -99,7 +99,7 @@
           <li class="nav-item">
             <a href="{{ route('kelurahan.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>List Kelurahan</p>
+              <p>List Kelurahan / Desa</p>
             </a>
           </li>
         </ul>
@@ -108,7 +108,7 @@
         <a href="#" class="nav-link">
             <i class="fas fa-building"></i>
             <p>
-            Rw
+             Rukun Warga
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
@@ -116,7 +116,7 @@
           <li class="nav-item">
             <a href="{{ route('rw.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>List Rw</p>
+              <p>List Rukun Warga</p>
             </a>
           </li>
         </ul>

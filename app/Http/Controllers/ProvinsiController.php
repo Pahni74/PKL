@@ -48,10 +48,6 @@ class ProvinsiController extends Controller
             \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
         }
         return redirect()->route('provinsi.index');
-        // $provinsi = new Provinsi();
-        // $provinsi->kode_provinsi = $request->kode_provinsi;
-        // $provinsi->nama_provinsi = $request->nama_provinsi;
-        // $provinsi->save();
     }
 
     /**
@@ -98,10 +94,6 @@ class ProvinsiController extends Controller
                 }catch(\Exception $e){
                 \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
                 }
-        // $provinsi = Provinsi::findOrFail($id);
-        // $provinsi->kode_provinsi = $request->kode_provinsi;
-        // $provinsi->nama_provinsi = $request->nama_provinsi;
-        // $provinsi->save();
         return redirect()->route('provinsi.index');
     }
 
@@ -120,7 +112,5 @@ class ProvinsiController extends Controller
             \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route("provinsi.index");
-        // $provinsi = provinsi::findOrFail($id)->delete();
-        // return redirect()->route('provinsi.index')->with('sukses','Data Berhasil Di Hapus');
     }
 }

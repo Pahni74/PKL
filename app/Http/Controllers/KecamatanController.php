@@ -53,11 +53,6 @@ class KecamatanController extends Controller
                     \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
                 }
                 return redirect()->route('kecamatan.index');
-        // $kecamatan = new Kecamatan();
-        // $kecamatan->kode_kecamatan = $request->kode_kecamatan;
-        // $kecamatan->nama_kecamatan = $request->nama_kecamatan;
-        // $kecamatan->kota_id = $request->kota_id;
-        // $kecamatan->save();
     }
 
     /**
@@ -108,11 +103,6 @@ class KecamatanController extends Controller
             \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
             }
             return redirect()->route('kecamatan.index');
-        // $kecamatan = Kecamatan::findOrFail($id);
-        // $kecamatan->kode_kecamatan = $request->kode_kecamatan;
-        // $kecamatan->nama_kecamatan = $request->nama_kecamatan;
-        // $kecamatan->kota_id = $request->kota_id;
-        // $kecamatan->save();
     }
 
     /**
@@ -130,7 +120,5 @@ class KecamatanController extends Controller
             \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route("kecamatan.index");
-        // $kecamatan = kecamatan::findOrFail($id)->delete();
-        // return redirect()->route('kecamatan.index')->with('sukses','Data Berhasil Di Hapus');
     }
 }

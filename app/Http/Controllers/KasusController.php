@@ -42,16 +42,19 @@ class KasusController extends Controller
      */
     public function store(Request $request)
     {
-        // $kasus = Kasus::create($request->all());
-        // $kasus->save();
-        $kasus = new Kasus();
-        $kasus->jumlah_positif = $request->jumlah_positif;
-        $kasus->jumlah_sembuh = $request->jumlah_sembuh;
-        $kasus->jumlah_meninggal = $request->jumlah_meninggal;
-        $kasus->tanggal = $request->tanggal;
-        $kasus->negara_id = $request->negara_id;
-        $kasus->save();
-        return redirect()->route('kasus.index')->with('sukses','Data Berhasil Di Tambah');
+        try{
+            $kasus = new Kasus();
+            $kasus->jumlah_positif = $request->jumlah_positif;
+            $kasus->jumlah_sembuh = $request->jumlah_sembuh;
+            $kasus->jumlah_meninggal = $request->jumlah_meninggal;
+            $kasus->tanggal = $request->tanggal;
+            $kasus->negara_id = $request->negara_id;
+            $kasus->save();
+            \Session::flash('sukses','Data Berhasil Di Tambah');
+            }catch(\Exception $e){
+            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+            }
+        return redirect()->route('kasus.index');
     }
 
     /**
@@ -91,14 +94,19 @@ class KasusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kasus = Kasus::findOrFail($id);
-        $kasus->jumlah_positif = $request->jumlah_positif;
-        $kasus->jumlah_sembuh = $request->jumlah_sembuh;
-        $kasus->jumlah_meninggal = $request->jumlah_meninggal;
-        $kasus->tanggal = $request->tanggal;
-        $kasus->negara_id = $request->negara_id;
-        $kasus->save();
-        return redirect()->route('kasus.index')->with('sukses','Data Berhasil Di Update');
+        try{
+            $kasus = Kasus::findOrFail($id);
+            $kasus->jumlah_positif = $request->jumlah_positif;
+            $kasus->jumlah_sembuh = $request->jumlah_sembuh;
+            $kasus->jumlah_meninggal = $request->jumlah_meninggal;
+            $kasus->tanggal = $request->tanggal;
+            $kasus->negara_id = $request->negara_id;
+            $kasus->save();;
+            \Session::flash('sukses','Data Berhasil Di Update');
+            }catch(\Exception $e){
+            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+            }
+        return redirect()->route('kasus.index');
     }
 
     /**

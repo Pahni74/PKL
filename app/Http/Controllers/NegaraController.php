@@ -49,10 +49,6 @@ class NegaraController extends Controller
                     }catch(\Exception $e){
                     \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
                     }
-        // $negara = new Negara();
-        // $negara->kode_negara = $request->kode_negara;
-        // $negara->nama_negara = $request->nama_negara;
-        // $negara->save();
         return redirect()->route('negara.index');
     }
 
@@ -101,10 +97,6 @@ class NegaraController extends Controller
                     \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
                     }
                     return redirect()->route('negara.index');
-        // $negara = Negara::findOrFail($id);
-        // $negara->kode_negara = $request->kode_negara;
-        // $negara->nama_negara = $request->nama_negara;
-        // $negara->save();
     }
 
     /**
@@ -122,8 +114,7 @@ class NegaraController extends Controller
             \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route("negara.index");
-        // $negara = Negara::findOrFail($id)->delete();
-        // return redirect()->route('negara.index')->with('sukses','Data Berhasil Di Hapus');
+
     }
 
     public function api(){

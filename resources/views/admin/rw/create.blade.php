@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <label>Kode Rw</label>
                             <input type="number" name="kode_rw" class="form-control" placeholder="Kode Rw" required autofocus>
-                            <label>Nama Rw</label>
+                            <label>Nomer Rw</label>
                             <input type="text" name="nama_rw" class="form-control" placeholder="Nama Rw" required>
                             <label>Nama Kelurahan</label>
                             <select name="kelurahan_id" class="form-control">

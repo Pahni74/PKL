@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rw extends Model
 {
-    use HasFactory;
-
     protected $fillable = ['kode_rw','nama_rw','kelurahan_id'];
     public $timestamps = true;
+    use HasFactory;
 
     public function Kelurahan(){
         return $this->belongsTo('App\Models\Kelurahan','kelurahan_id');

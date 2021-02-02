@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NegaraController;
+use App\Http\Controllers\Api\ApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,4 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getapi',[NegaraController::class,'api']);
+Route::get('/provinsi',[ApiController::class,'provinsi']);
+Route::get('/rw',[ApiController::class,'rw']);
+// Route::post('/provinsis/store',[ProvinsiController::class,'store']);
+// Route::get('/provinsis/{id}',[ProvinsiController::class,'show']);
+// Route::put('/provinsi/update/{id}', [ProvinsiController::class, 'update']);
+// Route::delete('/provinsis/{id}',[ProvinsiController::class,'destroy']);

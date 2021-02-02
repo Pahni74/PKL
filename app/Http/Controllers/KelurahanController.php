@@ -53,11 +53,6 @@ class KelurahanController extends Controller
                 \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
             }
             return redirect()->route('kelurahan.index');
-        // $kelurahan = new Kelurahan();
-        // $kelurahan->kode_kelurahan = $request->kode_kelurahan;
-        // $kelurahan->nama_kelurahan = $request->nama_kelurahan;
-        // $kelurahan->kecamatan_id = $request->kecamatan_id;
-        // $kelurahan->save();
     }
 
     /**
@@ -108,11 +103,6 @@ class KelurahanController extends Controller
             \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
             }
             return redirect()->route('kelurahan.index');
-        // $kelurahan = Kelurahan::findOrFail($id);
-        // $kelurahan->kode_kelurahan = $request->kode_kelurahan;
-        // $kelurahan->nama_kelurahan = $request->nama_kelurahan;
-        // $kelurahan->kecamatan_id = $request->kecamatan_id;
-        // $kelurahan->save();
     }
 
     /**
@@ -130,7 +120,6 @@ class KelurahanController extends Controller
             \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route("kelurahan.index");
-        // $kelurahan = kelurahan::findOrFail($id)->delete();
-        // return redirect()->route('kelurahan.index')->with('sukses','Data Berhasil Di Hapus');
+
     }
 }

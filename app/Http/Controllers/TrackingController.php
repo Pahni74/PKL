@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Tracking;
 use App\Models\Rw;
+use App\Models\Kelurahan;
+use App\Models\Provinsi;
+use App\Models\Kota;
+use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 
 class TrackingController extends Controller
@@ -39,14 +43,20 @@ class TrackingController extends Controller
      */
     public function store(Request $request)
     {
-        $tracking = new Tracking;
+        try{
+            $tracking = new Tracking;
+        $tracking->jumlah_reaktif = $request->jumlah_reaktif;
         $tracking->jumlah_positif = $request->jumlah_positif;
         $tracking->jumlah_sembuh = $request->jumlah_sembuh;
         $tracking->jumlah_meninggal = $request->jumlah_meninggal;
         $tracking->tanggal = $request->tanggal;
         $tracking->rw_id = $request->rw_id;
         $tracking ->save();
-        return redirect()->route('tracking.index')->with('sukses','Data Berhasil Di Tambah');
+            \Session::flash('sukses','Data Berhasil Di Tambah');
+        }catch(\Exception $e){
+            \Session::flash('gagal',$e->getMessage());
+        }
+        return redirect()->route('tracking.index');
     }
 
     /**
@@ -55,9 +65,16 @@ class TrackingController extends Controller
      * @param  \App\Models\Tracking  $tracking
      * @return \Illuminate\Http\Response
      */
-    public function show(Tracking $tracking)
+    public function show($id)
     {
-        //
+        $title = 'Detail Kasus';
+        $tracking = Tracking::findOrFail($id);
+        $rw = Rw::all();
+        $kelurahan = Kelurahan::all();
+        $kecamatan = Kecamatan::all();
+        $provinsi = Provinsi::all();
+        $kota = Kota::all();
+        return view('admin.tracking.show',compact('rw','title','rw','provinsi','kelurahan','kecamatan','kota','tracking'));
     }
 
     /**
@@ -83,14 +100,20 @@ class TrackingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tracking = Tracking::findOrFail($id);
-        $tracking->jumlah_positif = $request->jumlah_positif;
-        $tracking->jumlah_sembuh = $request->jumlah_sembuh;
-        $tracking->jumlah_meninggal = $request->jumlah_meninggal;
-        $tracking->tanggal = $request->tanggal;
-        $tracking->rw_id = $request->rw_id;
-        $tracking ->save();
-        return redirect()->route('rw.index')->with('sukses','Data Berhasil Di Update');
+        try{
+            $tracking = Tracking::findOrFail($id);
+            $tracking->jumlah_reaktif = $request->jumlah_reaktif;
+            $tracking->jumlah_positif = $request->jumlah_positif;
+            $tracking->jumlah_sembuh = $request->jumlah_sembuh;
+            $tracking->jumlah_meninggal = $request->jumlah_meninggal;
+            $tracking->tanggal = $request->tanggal;
+            $tracking->rw_id = $request->rw_id;
+            $tracking ->save();
+            \Session::flash('sukses','Data Berhasil Di Tambah');
+        }catch(\Exception $e){
+            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+        }
+        return redirect()->route('tracking.index');
     }
 
     /**
