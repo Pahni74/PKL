@@ -28,7 +28,9 @@ class HelloLivewire extends Component
     {
         $this->provinsi = Provinsi::all();
         $this->selectedRw = $selectedRw;
-        $this->kota = Kota::whereHas('provinsi')->get();
+        $this->kota = Kota::whereHas('provinsi',function ($query) {
+            $query->whereId(request()->input('provinsi_id', 0));
+        })->pluck('nama_kota', 'id');
         $this->kecamatan = Kecamatan::whereHas('kota', function ($query) {
             $query->whereId(request()->input('kota_id', 0));
         })->pluck('nama_kecamatan', 'id');
