@@ -39,7 +39,7 @@ class HelloLivewire extends Component
         })->pluck('nama_kelurahan', 'id');
         $this->rw = Rw::whereHas('kelurahan', function ($query) {
             $query->whereId(request()->input('kelurahan_id', 0));
-        })->pluck('nama_rw', 'id');
+        })->pluck('nomer_rw', 'id');
         $this->selectedRw = $selectedRw;
 
         if (!is_null($selectedRw)) {

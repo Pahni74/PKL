@@ -1,4 +1,22 @@
 @extends('layouts.master')
+@section('breadcrumb')
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Admin</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('tracking.index') }}">Tracking</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Data</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -16,10 +34,6 @@
                                 @livewire('hello-livewire',['selectedRw' => $tracking->rw_id,'idt' => $tracking->id])
                             </div>
                             <div class="col">
-                                <div class="form-group">
-                                    <label>Jumlah reaktif</label>
-                                    <input type=number name=jumlah_reaktif class=form-control value={{$tracking->jumlah_reaktif}} required>
-                                </div>
                                 <div class="form-group">
                                     <label>Jumlah Positif</label>
                                     <input type=number name=jumlah_positif class=form-control value={{$tracking->jumlah_positif}} required>
@@ -40,6 +54,9 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                        </div>
+                        <div class="form-group">
+                            <a href="{{ url()->previous() }}" class="btn btn-warning btn-block">Kembali</a>
                         </div>
                     </form>
                 </div>

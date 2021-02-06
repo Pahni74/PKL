@@ -13,7 +13,7 @@
     <div class="form-group row ">
         <div class="col">
             {{-- @if(!is_null($selectedProvinsi)) --}}
-            <label for="Kota">Kota</label>
+            <label for="Kota">Kabupaten / Kota</label>
             <select wire:model="selectedKota" class="form-control">
                 <option value="" selected>Pilih Kota</option>
                 @foreach($kota as $kota)
@@ -39,7 +39,7 @@
     <div class="form-group row ">
         <div class="col">
             {{-- @if (!is_null($selectedKecamatan)) --}}
-            <label for="kelurahan" >Kelurahan</label>
+            <label for="kelurahan" >Kelurahan / Desa</label>
             <select wire:model="selectedKelurahan" class="form-control">
                 <option value="" selected>Pilih Kelurahan</option>
                 @foreach($kelurahan as $kelurahans)
@@ -52,11 +52,11 @@
     <div class="form-group row ">
         <div class="col">
             {{-- @if (!is_null($selectedKelurahan)) --}}
-            <label for="rw" >Rw</label>
+            <label for="rw" >Rukun Warga</label>
                 <select wire:model="selectedRw" class="form-control" name="rw_id">
-                    <option value="" selected>Pilih Rw</option>
+                    <option value="" selected>Pilih Rukun Warga</option>
                     @foreach($rw as $rws)
-                    <option value="{{ $rws->id }}">{{ $rws->nama_rw }}</option>
+                    <option value="{{ $rws->id }}">{{ $rws->nomer_rw }}</option>
                     @endforeach
                 </select>
                 {{-- @endif --}}

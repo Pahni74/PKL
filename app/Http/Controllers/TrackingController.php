@@ -45,7 +45,6 @@ class TrackingController extends Controller
     {
         try{
             $tracking = new Tracking;
-        $tracking->jumlah_reaktif = $request->jumlah_reaktif;
         $tracking->jumlah_positif = $request->jumlah_positif;
         $tracking->jumlah_sembuh = $request->jumlah_sembuh;
         $tracking->jumlah_meninggal = $request->jumlah_meninggal;
@@ -99,10 +98,9 @@ class TrackingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+{
         try{
             $tracking = Tracking::findOrFail($id);
-            $tracking->jumlah_reaktif = $request->jumlah_reaktif;
             $tracking->jumlah_positif = $request->jumlah_positif;
             $tracking->jumlah_sembuh = $request->jumlah_sembuh;
             $tracking->jumlah_meninggal = $request->jumlah_meninggal;

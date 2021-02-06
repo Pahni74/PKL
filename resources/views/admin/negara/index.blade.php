@@ -10,7 +10,6 @@
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('admin') }}">Admin</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Negara</a></li>
-                <li class="breadcrumb-item active"><a href="{{ route('kasus.index') }}">Kasus</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

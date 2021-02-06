@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rw extends Model
 {
-    protected $fillable = ['kode_rw','nama_rw','kelurahan_id'];
+    protected $fillable = ['kode_rw','nomer_rw','kelurahan_id'];
     public $timestamps = true;
     use HasFactory;
 

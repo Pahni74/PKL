@@ -11,8 +11,4 @@ class Negara extends Model
 
     protected $fillable = ['kode_negara','nama_negara'];
     public $timestamps = true;
-
-    public function kasus(){
-        return $this->hasMany('App\Models\kasus','negara_id');
-    }
 }

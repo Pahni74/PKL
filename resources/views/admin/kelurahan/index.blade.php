@@ -22,7 +22,7 @@
                     <div class="col-12">
                         <div class="card">
                         <div class="card-body">
-                                <h4 class="card-title">List Kelurahan
+                                <h4 class="card-title">List Kelurahan / Desa
                                     <a class="btn btn-primary btn-sm btn-rounded" href="{{route('kelurahan.create')}}"><i class="fa fa-plus"></i></a></h4>
 
                                 @if(Session::has('sukses'))
@@ -46,8 +46,8 @@
                                     <thead>
                                         <tr class="bg-blue">
                                             <th scope="col">No</th>
-                                            <th scope="col">Kode Kelurahan</th>
-                                            <th scope="col">Nama Kelurahan</th>
+                                            <th scope="col">Kode Kelurahan / Desa</th>
+                                            <th scope="col">Nama Kelurahan / Desa</th>
                                             <th scope="col">Nama Kecamatan</th>
                                             <th scope="col">Action</th>
                                         </tr>

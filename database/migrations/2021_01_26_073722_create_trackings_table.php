@@ -17,7 +17,6 @@ class CreateTrackingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('rw_id')->unique();
             $table->foreign('rw_id')->references('id')->on('rws')->onDelete('cascade');
-            $table->integer("jumlah_reaktif");
             $table->integer("jumlah_positif");
             $table->integer("jumlah_sembuh");
             $table->integer("jumlah_meninggal");

@@ -45,7 +45,7 @@ class RwController extends Controller
         try{
         $rw = new Rw();
         $rw->kode_rw = $request->kode_rw;
-        $rw->nama_rw = $request->nama_rw;
+        $rw->nomer_rw = $request->nomer_rw;
         $rw->kelurahan_id = $request->kelurahan_id;
         $rw->save();
                     \Session::flash('sukses','Data Berhasil Di Tambah');
@@ -95,7 +95,7 @@ class RwController extends Controller
         try{
         $rw = Rw::findOrFail($id);
         $rw->kode_rw = $request->kode_rw;
-        $rw->nama_rw = $request->nama_rw;
+        $rw->nomer_rw = $request->nomer_rw;
         $rw->kelurahan_id = $request->kelurahan_id;
         $rw->save();
             \Session::flash('sukses','Data Berhasil Di Update');

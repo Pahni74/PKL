@@ -48,7 +48,7 @@
                                             <th scope="col">No</th>
                                             <th scope="col">Kode Kecamatan</th>
                                             <th scope="col">Nama Kecamatan</th>
-                                            <th scope="col">Nama Kota</th>
+                                            <th scope="col">Nama Kabupaten / Kota</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>

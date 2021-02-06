@@ -9,7 +9,7 @@ class Tracking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['jumlah_reaktif','jumlah_positif','jumlah_negatif','jumlah_meninggal','tanggal','rw_id'];
+    protected $fillable = ['jumlah_positif','jumlah_negatif','jumlah_meninggal','tanggal','rw_id'];
     public $timestamps = true;
 
     public function rw()

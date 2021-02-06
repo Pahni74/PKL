@@ -22,7 +22,7 @@
                     <div class="col-12">
                         <div class="card">
                         <div class="card-body">
-                                <h4 class="card-title">List Kota
+                                <h4 class="card-title">List Kabupaten / Kota
                                     <a class="btn btn-primary btn-sm btn-rounded" href="{{route('kota.create')}}"><i class="fa fa-plus"></i></a></h4>
 
                                 @if(Session::has('sukses'))
@@ -46,8 +46,8 @@
                                     <thead>
                                         <tr class="bg-blue">
                                             <th scope="col">No</th>
-                                            <th scope="col">Kode Kota</th>
-                                            <th scope="col">Nama Kota</th>
+                                            <th scope="col">Kode Kabupaten / Kota</th>
+                                            <th scope="col">Nama Kabupaten / Kota</th>
                                             <th scope="col">Nama Provinsi</th>
                                             <th scope="col">Action</th>
                                         </tr>

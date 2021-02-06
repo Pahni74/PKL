@@ -116,9 +116,4 @@ class NegaraController extends Controller
         return redirect()->route("negara.index");
 
     }
-
-    public function api(){
-        $negara = Negara::all();
-        dd($negara);
-    }
 }

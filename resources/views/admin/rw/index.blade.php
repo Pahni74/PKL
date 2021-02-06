@@ -21,7 +21,7 @@
                     <div class="col-12">
                         <div class="card">
                         <div class="card-body">
-                                <h4 class="card-title">List Rw
+                                <h4 class="card-title">List Rukun Warga
                                     <a class="btn btn-primary btn-sm btn-rounded" href="{{route('rw.create')}}"><i class="fa fa-plus"></i></a>
                                 </h4>
 
@@ -47,9 +47,9 @@
                                         <thead>
                                             <tr class="bg-blue">
                                             <th scope="col">No</th>
-                                            <th scope="col">Kode Rw</th>
-                                            <th scope="col">Nomer Rw</th>
-                                            <th scope="col">Nama Kelurahan</th>
+                                            <th scope="col">Kode Rukun Warga</th>
+                                            <th scope="col">Nomer Rukun Warga</th>
+                                            <th scope="col">Nama Kelurahan / Desa</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -61,7 +61,7 @@
                                         <tr>
                                             <th scope="row">{{$no++}}</th>
                                             <td>{{$data->kode_rw}}</td>
-                                            <td>{{$data->nama_rw}}</td>
+                                            <td>{{$data->nomer_rw}}</td>
                                             <td>{{$data->kelurahan->nama_kelurahan}}</td>
                                             <td>
                                             <form action="{{route('rw.destroy',$data->id)}}"  method="POST">
