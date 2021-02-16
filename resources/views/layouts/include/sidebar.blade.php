@@ -10,23 +10,6 @@
                 <p> Dashboard</p>
             </a>
         </li>
-        <li class="nav-header"><strong>Master Data</strong></li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="fas fa-flag"></i>
-                <p>
-                Negara
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('negara.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Negara</p>
-                </a>
-              </li>
-            </ul>
       <li class="nav-item">
         <a href="#" class="nav-link">
             <i class="fas fa-building"></i>

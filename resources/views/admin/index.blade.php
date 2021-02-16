@@ -38,7 +38,7 @@
         <div class="info-box-content">
           <span class="info-box-text">Total Sembuh</span>
           <span class="info-box-number">
-            {{ \DB::table('trackings')->sum('jumlah_sembuh') }}
+            {{ $jumlah_sembuh }}
             <small>Orang</small>
           </span>
         </div>
@@ -54,7 +54,7 @@
           <div class="info-box-content">
             <span class="info-box-text">Total Positif</span>
             <span class="info-box-number">
-                {{ \DB::table('trackings')->sum('jumlah_positif') }}
+                {{ $jumlah_positif }}
               <small>Orang</small>
             </span>
           </div>
@@ -68,12 +68,12 @@
 
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box mb-3">
-        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-skull-crossbones"></i></i></span>
+        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-skull-crossbones"></i></span>
 
         <div class="info-box-content">
           <span class="info-box-text">Total Meninggal</span>
           <span class="info-box-number">
-            {{ \DB::table('trackings')->sum('jumlah_meninggal') }}
+            {{ $jumlah_meninggal }}
             <small>Orang</small>
           </span>
         </div>

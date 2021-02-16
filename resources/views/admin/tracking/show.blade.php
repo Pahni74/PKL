@@ -58,7 +58,7 @@
 <div class="form-group row ">
     <div class="col-md-6">
         <label>Rukun Warga</label>
-        <input type="text"  value="{{$tracking->rw->nama_rw}}" class="form-control" readonly>
+        <input type="text"  value="{{$tracking->rw->nomer_rw}}" class="form-control" readonly>
     </div>
     <div class="col-md-6">
         <label>Tanggal</label>

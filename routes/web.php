@@ -10,16 +10,10 @@ use App\Http\Controllers\RwController;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\FrontendController;
 
-
-Route::get('/', function () {
-    return view("frontend.index");
-});
-
+Route::get('/',[FrontendController::class,'index']);
+Route::get('/api',[FrontendController::class,'api']);
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('')
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/',[DashboardController::class,'index'])->name('admin');
     Route::resource('provinsi', ProvinsiController::class);

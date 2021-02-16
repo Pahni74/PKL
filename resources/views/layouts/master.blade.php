@@ -23,7 +23,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      @include("layouts.include.sidebar")
+                @include("layouts.include.sidebar")
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
