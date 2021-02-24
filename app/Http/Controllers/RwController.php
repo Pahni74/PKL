@@ -50,7 +50,7 @@ class RwController extends Controller
         $rw->save();
                     \Session::flash('sukses','Data Berhasil Di Tambah');
                 }catch(\Exception $e){
-                    \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+                    \Session::flash('gagal',$e->getMessage());
                 }
                 return redirect()->route('rw.index');
     }
@@ -100,7 +100,7 @@ class RwController extends Controller
         $rw->save();
             \Session::flash('sukses','Data Berhasil Di Update');
             }catch(\Exception $e){
-            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+            \Session::flash('gagal',$e->getMessage());
             }
             return redirect()->route('rw.index');
     }

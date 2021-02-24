@@ -33,8 +33,8 @@
             <img src="{{ asset("adminLTE/img/user.png") }}" class="img-circle" alt="User Image">
 
             <p>
-                {{ Auth::user()->name }} - Web Developer
-              <small>Member since Nov. 2012</small>
+               <b>{{ Auth::user()->name }}</b>
+               <small>Web Developer</small>
             </p>
           </li>
             <div class="pull-right">

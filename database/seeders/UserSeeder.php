@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+Use DB;
 class UserSeeder extends Seeder
 {
     /**
@@ -13,9 +14,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $user = New User();
-        $user->name = 'Pahni';
-        $user->email = 'pahni1232@gmail.com';
-        $user->password = bcrypt('rahasia');
+        DB::table('users')->insert([
+            'name' => 'Pahni',
+            'email' => 'pahni1232@gmail.com',
+            'password' => bcrypt('rahasia123'),
+        ]);
+
     }
 }

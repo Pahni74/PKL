@@ -12,7 +12,6 @@
     </div>
     <div class="form-group row ">
         <div class="col">
-            {{-- @if(!is_null($selectedProvinsi)) --}}
             <label for="Kota">Kabupaten / Kota</label>
             <select wire:model="selectedKota" class="form-control">
                 <option value="" selected>Pilih Kota</option>
@@ -20,12 +19,10 @@
                 <option value="{{ $kota->id }}">{{ $kota->nama_kota }}</option>
                 @endforeach
             </select>
-            {{-- @endif --}}
         </div>
     </div>
     <div class="form-group row ">
         <div class="col">
-            {{-- @if (!is_null($selectedKota)) --}}
             <label for="kecamatan">Kecamatan</label>
             <select wire:model="selectedKecamatan" class="form-control">
                 <option value="" selected>Pilih Kecamatan</option>
@@ -33,12 +30,10 @@
                 <option value="{{ $kecamatans->id }}">{{ $kecamatans->nama_kecamatan }}</option>
                 @endforeach
             </select>
-            {{-- @endif --}}
         </div>
     </div>
     <div class="form-group row ">
         <div class="col">
-            {{-- @if (!is_null($selectedKecamatan)) --}}
             <label for="kelurahan" >Kelurahan / Desa</label>
             <select wire:model="selectedKelurahan" class="form-control">
                 <option value="" selected>Pilih Kelurahan</option>
@@ -46,12 +41,10 @@
                 <option value="{{ $kelurahans->id }}">{{ $kelurahans->nama_kelurahan }}</option>
                 @endforeach
             </select>
-            {{-- @endif --}}
         </div>
     </div>
     <div class="form-group row ">
         <div class="col">
-            {{-- @if (!is_null($selectedKelurahan)) --}}
             <label for="rw" >Rukun Warga</label>
                 <select wire:model="selectedRw" class="form-control" name="rw_id">
                     <option value="" selected>Pilih Rukun Warga</option>
@@ -59,7 +52,6 @@
                     <option value="{{ $rws->id }}">{{ $rws->nomer_rw }}</option>
                     @endforeach
                 </select>
-                {{-- @endif --}}
             </div>
         </div>
     </div>

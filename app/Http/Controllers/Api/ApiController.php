@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Provinsi;
+use App\Models\Kota;
+use App\Models\Kecamatan;
+use App\Models\Rw;
 use DB;
 use Illuminate\Support\Facades\Http;
 class ApiController extends Controller

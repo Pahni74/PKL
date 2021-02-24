@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Provinsi;
 use App\Models\Tracking;
+use App\Charts\CovidChart;
 use DB;
 use Carbon\Carbon;
 class FrontendController extends Controller
@@ -50,34 +51,20 @@ class FrontendController extends Controller
             $tanggal = Carbon::now()->format('D d-M-Y h:i:s');
 
             // CHART
+            $tkposi = Tracking::orderBy('tanggal')->pluck('jumlah_positif','tanggal');
+            $tksembuh = Tracking::orderBy('tanggal')->pluck('jumlah_sembuh','tanggal');
+            $tkmeninggal = Tracking::orderBy('tanggal')->pluck('jumlah_meninggal','tanggal');
 
-            $chartSembuh = Tracking::select(
-                        DB::raw('SUM(trackings.jumlah_sembuh) as sembuh'))
-                        ->orderBy('trackings.tanggal')
-                        ->groupBy('trackings.tanggal')
-                        ->pluck('sembuh');
+            $chart = new CovidChart;
+            $chart->labels($tkposi->keys());
+            $chart->dataset('Positif', 'bar',$tkposi->values())->backgroundColor('orange');
+            $chart->dataset('Sembuh', 'bar',$tksembuh->values())->backgroundColor('green');
+            $chart->dataset('Meninggal', 'bar',$tkmeninggal->values())->backgroundColor('red');
 
-            $chartpositif = Tracking::select(DB::raw("COUNT(*) as count"))
-                            ->whereYear('tanggal',date('Y'))
-                            ->groupBy(DB::raw("Month(tanggal)"))
-                            ->pluck('count');
-
-            $months = Tracking::select(DB::raw("Month(tanggal) as month"))
-                      ->whereYear('tanggal',date('Y'))
-                      ->groupBy(DB::raw("Month(tanggal)"))
-                      ->pluck('month');
-
-                      $datas = array(0,0,0,0,0,0,0,0,0,0,0,0);
-                      foreach($months as $index => $month)
-                      {
-                          $datas[$month] = $chartpositif[$index];
-                      }
-
-            return view('frontend.index', compact('chartSembuh','datas','provinsi','jumlah_positif','jumlah_sembuh','jumlah_meninggal','positif','sembuh','meninggal','tanggal','dunia'));
-        }
-        public function api()
-        {
-            return view('frontend.api');
-
+            return view('frontend.index', compact('chart','provinsi','jumlah_positif','jumlah_sembuh','jumlah_meninggal','positif','sembuh','meninggal','tanggal','dunia'));
+    }
+    public function api()
+    {
+        return view('frontend.pageapi');
     }
 }

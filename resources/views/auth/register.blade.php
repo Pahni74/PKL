@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Sign Ip</h2>
                         <form action="{{ route('register') }}" method="post">
                             @csrf
                             <div class="form-group">

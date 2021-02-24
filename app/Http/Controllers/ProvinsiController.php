@@ -45,7 +45,7 @@ class ProvinsiController extends Controller
             $provinsi->save();
             \Session::flash('sukses','Data Berhasil Di Tambah');
         }catch(\Exception $e){
-            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+            \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route('provinsi.index');
     }
@@ -92,7 +92,7 @@ class ProvinsiController extends Controller
         $provinsi->save();
                 \Session::flash('sukses','Data Berhasil Di Update');
                 }catch(\Exception $e){
-                \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+                \Session::flash('gagal',$e->getMessage());
                 }
         return redirect()->route('provinsi.index');
     }

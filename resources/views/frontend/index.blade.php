@@ -5,13 +5,13 @@
     <title>TrackingCovid</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="{{ asset('frontend2/layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset("adminLTE/img/logo.png")}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset("adminLTE/img/logo.png")}}">
+    <link href="{{ asset('frontend/layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> {{--
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> --}}
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/fontawesome-free/css/all.min.css') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset(" adminLTE/img/logo.png ")}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{asset(" adminLTE/img/logo.png ")}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 </head>
@@ -28,13 +28,13 @@
 
                 <ul class="clear">
                     <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{url('/api')}}">Api</a></li>
+                    <li><a href="{{url('/pageapi')}}">Api</a></li>
                 </ul>
 
             </nav>
         </header>
     </div>
-    <div class="bgded overlay" style="background-image:url('{{ asset('frontend2/images/demo/backgrounds/corona.jpg') }}');">
+    <div class="bgded overlay" style="background-image:url('{{ asset('frontend/images/demo/backgrounds/corona.jpg') }}');">
         <div id="pageintro" class="hoc clear">
 
             <article>
@@ -86,7 +86,19 @@
                 </ul>
             </section>
             <section class="group shout">
-                {{-- <canvas id="myChart"></canvas> --}}
+                <div class="card">
+                    <div class="card-header">
+                        <center>
+                            <h3>Chart Covid 19</h3>
+                        </center>
+                        <div class="card-body">
+                            {!! $chart->container() !!}
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+                            {!! $chart->script() !!}
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="card-header">
                         <center>
@@ -161,7 +173,7 @@
             <div class="clear"></div>
         </main>
     </div>
-    <div class="bgded overlay light" style="background-image:url('{{ asset('frontend2/images/demo/backgrounds/corona.jpg') }}');">
+    <div class="bgded overlay light" style="background-image:url('{{ asset('frontend/images/demo/backgrounds/corona.jpg') }}');">
         <section id="services" class="hoc container clear">
 
             <div class="sectiontitle">
@@ -171,46 +183,6 @@
         </section>
     </div>
 </body>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<script>
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            datasets: [{
-                label: 'Sembuh',
-                data: [1,5,10,128],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-    </script> --}}
 </section>
 </div>
 <div class="wrapper row5">
@@ -222,20 +194,19 @@
 </div>
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
-<script src="{{ asset('frontend2/layout/scripts/jquery.min.js') }}"></script>
-<script src="{{ asset('frontend2/layout/scripts/jquery.backtotop.js') }}"></script>
-<script src="{{ asset('frontend2/layout/scripts/jquery.mobilemenu.js') }}"></script>
+<script src="{{ asset('frontend/layout/scripts/jquery.min.js') }}"></script>
+<script src="{{ asset('frontend/layout/scripts/jquery.backtotop.js') }}"></script>
+<script src="{{ asset('frontend/layout/scripts/jquery.mobilemenu.js') }}"></script>
 <!-- Homepage specific -->
 {{--
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> --}}
-<script src="{{ asset('frontend2/layout/scripts/jquery.easypiechart.min.js') }}"></script>
+<script src="{{ asset('frontend/layout/scripts/jquery.easypiechart.min.js') }}"></script>
 <!-- / Homepage specific -->
 <script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 <script>
     $(function() {
-        // $("#example1").DataTable();
         $('#example1').DataTable({
             "paging": false,
             "lengthChange": false,

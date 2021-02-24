@@ -11,8 +11,8 @@ use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\FrontendController;
 
 Route::get('/',[FrontendController::class,'index']);
-Route::get('/api',[FrontendController::class,'api']);
-Auth::routes();
+Route::get('/pageapi',[FrontendController::class,'api']);
+Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/',[DashboardController::class,'index'])->name('admin');

@@ -50,7 +50,7 @@ class KotaController extends Controller
         $kota->save();
             \Session::flash('sukses','Data Berhasil Di Tambah');
         }catch(\Exception $e){
-            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+            \Session::flash('gagal',$e->getMessage());
         }
         return redirect()->route('kota.index');
     }
@@ -100,7 +100,7 @@ class KotaController extends Controller
             $kota->save();
             \Session::flash('sukses','Data Berhasil Di Update');
             }catch(\Exception $e){
-            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+            \Session::flash('gagal',$e->getMessage());
             }
             return redirect()->route('kota.index');
     }

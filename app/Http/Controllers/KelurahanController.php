@@ -50,7 +50,7 @@ class KelurahanController extends Controller
         $kelurahan->save();
                 \Session::flash('sukses','Data Berhasil Di Tambah');
             }catch(\Exception $e){
-                \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+                \Session::flash('gagal',$e->getMessage());
             }
             return redirect()->route('kelurahan.index');
     }
@@ -100,7 +100,7 @@ class KelurahanController extends Controller
         $kelurahan->save();
             \Session::flash('sukses','Data Berhasil Di Update');
             }catch(\Exception $e){
-            \Session::flash('gagal','Data Yang Anda Masukkan Sudah Ada');
+            \Session::flash('gagal',$e->getMessage());
             }
             return redirect()->route('kelurahan.index');
     }

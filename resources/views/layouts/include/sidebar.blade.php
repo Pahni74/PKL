@@ -97,8 +97,8 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route("tracking.index") }}">
-            <i class="fas fa-"></i>
-            <p> Tracking</p>
+            <i class="fas fa-briefcase"></i>
+            <p>Tracking</p>
         </a>
       </li>
       {{-- <li class="nav-header"><strong>UTILITIES</strong></li>
