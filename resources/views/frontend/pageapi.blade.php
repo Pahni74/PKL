@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Kawal Corona</title>
+    <title>Tracking Covid</title>
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/fontawesome-free/css/all.min.css') }}">
@@ -60,7 +60,7 @@
         <div class="card">
             <div class="card-header">Provinsi API</div>
                 <div class="card-body">
-                    <a href="http://127.0.0.1:8000/api/provinsi">http://127.0.0.1:8000/api/provinsi</a>
+                    <a href="http://trackingcovidid.herokuapp.com/api/provinsi">http://trackingcovidid.herokuapp.com/api/provinsi</a>
                 </div>
         </div>
         </div>
@@ -68,7 +68,7 @@
             <div class="card">
                 <div class="card-header">Kabupaten / Kota API</div>
                     <div class="card-body">
-                        <a href="http://127.0.0.1:8000/api/kota">http://127.0.0.1:8000/api/kota</a>
+                        <a href="http://trackingcovidid.herokuapp.com/api/kota">http://trackingcovidid.herokuapp.com/api/kota</a>
                     </div>
             </div>
             </div>
@@ -76,7 +76,7 @@
                 <div class="card">
                     <div class="card-header">Kecamatan API</div>
                         <div class="card-body">
-                            <a href="http://127.0.0.1:8000/api/kecamatan">http://127.0.0.1:8000/api/kecamatan</a>
+                            <a href="http://trackingcovidid.herokuapp.com/api/kecamatan">http://trackingcovidid.herokuapp.com/api/kecamatan</a>
                         </div>
                 </div>
                 </div>
@@ -84,7 +84,7 @@
                     <div class="card">
                         <div class="card-header">Kelurahan / Desa API</div>
                             <div class="card-body">
-                                <a href="http://127.0.0.1:8000/api/kelurahan">http://127.0.0.1:8000/api/kelurahan</a>
+                                <a href="http://trackingcovidid.herokuapp.com/api/kelurahan">http://trackingcovidid.herokuapp.com/api/kelurahan</a>
                             </div>
                     </div>
                     </div>
@@ -92,7 +92,7 @@
                         <div class="card">
                             <div class="card-header">Rukun Warga API</div>
                                 <div class="card-body">
-                                    <a href="http://127.0.0.1:8000/api/rw">http://127.0.0.1:8000/api/rw</a>
+                                    <a href="http://trackingcovidid.herokuapp.com/api/rw">http://trackingcovidid.herokuapp.com/api/rw</a>
                                 </div>
                         </div>
                         </div>
