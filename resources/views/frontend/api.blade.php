@@ -52,31 +52,31 @@
                 <div class="card border-primary">
                   <div class="card-body">
                     <h4 class="card-title">Provinsi API</h4>
-                    <p class="card-text"><a href="http://127.0.0.1:8000/api/provinsi">http://127.0.0.1:8000/api/provinsi</a></p>
+                    <p class="card-text"><a href="http://trackingcovidid.herokuapp.com/api/provinsi">http://trackingcovidid.herokuapp.com/api/provinsi</a></p>
                   </div>
                 </div>
                 <div class="card border-primary">
                     <div class="card-body">
                       <h4 class="card-title">Kota API</h4>
-                      <p class="card-text"><a href="http://127.0.0.1:8000/api/kota">http://127.0.0.1:8000/api/kota</a></p>
+                      <p class="card-text"><a href="http://trackingcovidid.herokuapp.com/api/kota">http://trackingcovidid.herokuapp.com/api/kota</a></p>
                     </div>
                   </div>
                   <div class="card border-primary">
                     <div class="card-body">
                       <h4 class="card-title">Kecamatan API</h4>
-                      <p class="card-text"><a href="http://127.0.0.1:8000/api/kecamatan">http://127.0.0.1:8000/api/kecamatan</a></p>
+                      <p class="card-text"><a href="http://trackingcovidid.herokuapp.com/api/kecamatan">http://trackingcovidid.herokuapp.com/api/kecamatan</a></p>
                     </div>
                   </div>
                   <div class="card border-primary">
                     <div class="card-body">
                       <h4 class="card-title">Kelurahan API</h4>
-                      <p class="card-text"><a href="http://127.0.0.1:8000/api/kelurahan">http://127.0.0.1:8000/api/kelurahan</a></p>
+                      <p class="card-text"><a href="http://trackingcovidid.herokuapp.com/api/kelurahan">http://trackingcovidid.herokuapp.com/api/kelurahan</a></p>
                     </div>
                   </div>
                   <div class="card border-primary">
                     <div class="card-body">
                       <h4 class="card-title">Rukun Warga API</h4>
-                      <p class="card-text"><a href="http://127.0.0.1:8000/api/rw">http://127.0.0.1:8000/api/rw</a></p>
+                      <p class="card-text"><a href="http://trackingcovidid.herokuapp.com/api/rw">http://trackingcovidid.herokuapp.com/api/rw</a></p>
                     </div>
                   </div>
             </section>
