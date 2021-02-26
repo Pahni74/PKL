@@ -25,10 +25,10 @@
                 <div class="card-header">Detail Data Kecamatan</div>
                 <div class="card-body">
                         <div class="form-group">
+                            <label>Kode Kecamatan</label>
+                            <input type="text" name="kode_kecamatan" class="form-control" value="{{ $kecamatan->kode_kecamatan }}" readonly>
                             <label>Nama Kecamatan</label>
                             <input type="text" name="nama_kecamatan" class="form-control" value="{{ $kecamatan->nama_kecamatan }}" readonly>
-                            <label>Kode Kecamatan</label>
-                            <input type="number" name="kode_kecamatan" class="form-control" value="{{ $kecamatan->kode_kecamatan }}" readonly>
                             <label>Nama Kabupaten / Kota</label>
                             <input type="text" name='kota_id' class="form-control" value="{{$kecamatan->kota->nama_kota}}" readonly>
                         </div>

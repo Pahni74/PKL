@@ -25,10 +25,10 @@
                 <div class="card-header">Detail Data Kabupaten / Kota</div>
                 <div class="card-body">
                         <div class="form-group">
+                            <label>Kode Kabupaten / Kota</label>
+                            <input type="text" name="kode_kota" class="form-control" value="{{ $kota->kode_kota }}" readonly>
                             <label>Nama Kabupaten / Kota</label>
                             <input type="text" name="nama_kota" class="form-control" value="{{ $kota->nama_kota }}" readonly>
-                            <label>Kode Kabupaten / Kota</label>
-                            <input type="number" name="kode_kota" class="form-control" value="{{ $kota->kode_kota }}" readonly>
                             <label>Nama Provinsi</label>
                             <input type="text" name='provinsi_id' class="form-control" value="{{$kota->provinsi->nama_provinsi}}" readonly>
                         </div>

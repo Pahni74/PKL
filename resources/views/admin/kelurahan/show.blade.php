@@ -25,10 +25,10 @@
                 <div class="card-header">Detail Data Kelurahan / Desa</div>
                 <div class="card-body">
                         <div class="form-group">
+                            <label>Kode Kelurahan / Desa</label>
+                            <input type="text" name="kode_kelurahan" class="form-control" value="{{ $kelurahan->kode_kelurahan }}" readonly>
                             <label>Nama Kelurahan / Desa</label>
                             <input type="text" name="nama_kelurahan" class="form-control" value="{{ $kelurahan->nama_kelurahan }}" readonly>
-                            <label>Kode Kelurahan / Desa</label>
-                            <input type="number" name="kode_kelurahan" class="form-control" value="{{ $kelurahan->kode_kelurahan }}" readonly>
                             <label>Nama Kecamatan</label>
                             <input type="text" name='kecamatan_id' class="form-control" value="{{$kelurahan->kecamatan->nama_kecamatan}}" readonly>
                         </div>

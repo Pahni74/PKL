@@ -28,7 +28,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Kode Rukun Warga</label>
-                            <input type="number" name="kode_rw" class="form-control" placeholder="Kode Rw" required autofocus>
+                            <input type="text" name="kode_rw" class="form-control" placeholder="Kode Rw" required autofocus>
                             <label>Nomer Rukun Warga</label>
                             <input type="number" name="nomer_rw" class="form-control" placeholder="Nomer Rw" required>
                             <label>Nama Kelurahan / Desa</label>

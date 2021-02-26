@@ -28,7 +28,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Kode Kelurahan / Desa</label>
-                            <input type="number" name="kode_kelurahan" class="form-control" placeholder="Kode Kelurahan" required autofocus>
+                            <input type="text" name="kode_kelurahan" class="form-control" placeholder="Kode Kelurahan" required autofocus>
                             <label>Nama Kelurahan / Desa</label>
                             <input type="text" name="nama_kelurahan" class="form-control" placeholder="Nama Kelurahan" required>
                             <label>Nama Kecamatan</label>

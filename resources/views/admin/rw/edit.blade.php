@@ -29,7 +29,7 @@
                         @method('PATCH')
                         <div class="form-group">
                             <label>Kode Rukun Warga</label>
-                            <input type="number" name="kode_rw" class="form-control" value="{{ $rw->kode_rw }}" placeholder="Kode Rw" required autofocus>
+                            <input type="text" name="kode_rw" class="form-control" value="{{ $rw->kode_rw }}" placeholder="Kode Rw" required autofocus>
                             <label>Nama Rukun Warga</label>
                             <input type="number" name="nomer_rw" class="form-control" value="{{ $rw->nomer_rw }}" placeholder="Nama Rw" required>
                             <label>Nama Kelurahan / Desa</label>

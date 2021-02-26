@@ -29,7 +29,7 @@
                                 @csrf
                                 @method('PATCH')
                                 <label>Kode Provinsi</label>
-                                <input type="number" name="kode_provinsi" class="form-control" value="{{ $provinsi->kode_provinsi }}" placeholder="kode Provinsi" required autofocus>
+                                <input type="text" name="kode_provinsi" class="form-control" value="{{ $provinsi->kode_provinsi }}" placeholder="kode Provinsi" required autofocus>
                                 <label>Nama Provinsi</label>
                                 <input type="text" name="nama_provinsi" class="form-control" value="{{ $provinsi->nama_provinsi }}" placeholder="Nama Provinsi" required>
                         </div>

@@ -29,7 +29,7 @@
                         @method('PATCH')
                         <div class="form-group">
                             <label>Kode Kabupaten / Kota</label>
-                            <input type="number" name="kode_kota" class="form-control" value="{{ $kota->kode_kota }}" placeholder="Kode Kota" required >
+                            <input type="text" name="kode_kota" class="form-control" value="{{ $kota->kode_kota }}" placeholder="Kode Kota" required >
                             <label>Nama Kabupaten / Kota</label>
                             <input type="text" name="nama_kota" class="form-control" value="{{ $kota->nama_kota }}" placeholder="Nama Kota" required autofocus>
                             <label>Nama Provinsi</label>

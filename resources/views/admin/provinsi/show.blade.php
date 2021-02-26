@@ -26,7 +26,7 @@
                 <div class="card-body">
                         <div class="form-group">
                             <label>Kode Provinsi</label>
-                            <input type="number" name="kode_provinsi" value="{{ $provinsi->kode_provinsi }}" class="form-control"  readonly>
+                            <input type="text" name="kode_provinsi" value="{{ $provinsi->kode_provinsi }}" class="form-control"  readonly>
                             <label>Nama Provinsi</label>
                             <input type="text" name="nama_provinsi" value="{{ $provinsi->nama_provinsi }}" class="form-control"  readonly>
                         </div>

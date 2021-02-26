@@ -28,7 +28,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Kode Kecamatan</label>
-                            <input type="number" name="kode_kecamatan" class="form-control" placeholder="Kode Kecamatan" required autofocus>
+                            <input type="text" name="kode_kecamatan" class="form-control" placeholder="Kode Kecamatan" required autofocus>
                             <label>Nama Kecamatan</label>
                             <input type="text" name="nama_kecamatan" class="form-control" placeholder="Nama Kecamatan" required>
                             <label>Nama Kabupaten / Kota</label>

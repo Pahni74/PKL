@@ -28,7 +28,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Kode Provinsi</label>
-                            <input type="number" name="kode_provinsi" class="form-control" placeholder="kode Provinsi" required autofocus>
+                            <input type="text" name="kode_provinsi" class="form-control" placeholder="kode Provinsi" required autofocus>
                             <label>Nama Provinsi</label>
                             <input type="text" name="nama_provinsi" class="form-control" placeholder="Nama Provinsi" required>
 
