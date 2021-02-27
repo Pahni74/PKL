@@ -25,8 +25,8 @@
                 <div class="card-header">Detail Data Rukun Warga</div>
                 <div class="card-body">
                         <div class="form-group">
-                            <label>Kode text Warga</label>
-                            <input type="number" name="kode_rw" class="form-control" value="{{ $rw->kode_rw }}" readonly>
+                            <label>Kode Rukun Warga</label>
+                            <input type="text" name="kode_rw" class="form-control" value="{{ $rw->kode_rw }}" readonly>
                             <label>Nomer Rukun Warga</label>
                             <input type="number" name="nomer_rw" class="form-control" value="{{ $rw->nomer_rw }}" readonly>
                             <label>Nama Kelurahan / Desa</label>
