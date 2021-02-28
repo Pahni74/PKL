@@ -96,7 +96,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-hover" width="100%" cellspacing="0">
+                    <table id="global" class="table table-bordered table-hover" width="100%" cellspacing="0">
                         <thead>
                             <tr class="bg-black">
                                 <th scope="col">NO</th>
@@ -128,7 +128,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="example2" class="table table-bordered table-hover" width="100%" cellspacing="0">
+                    <table id="indonesia" class="table table-bordered table-hover" width="100%" cellspacing="0">
                         <thead>
                             <tr class="bg-black">
                                 <th scope="col">NO</th>
@@ -143,7 +143,7 @@
                             @foreach($provinsi as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{ $data->nama_provinsi }}</td>
+                                <td><a href="/provinsi/{{ $data->id }}">{{ $data->nama_provinsi }}</a></td>
                                 <td>{{$data->positif}}</td>
                                 <td>{{$data->sembuh}}</td>
                                 <td>{{$data->meninggal}}</td>
@@ -154,4 +154,49 @@
                 </div>
             </div>
         </div>
-@endsection
+        @endsection
+        @section('scripts')
+        <script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+        {{-- <script>
+  $(function () {
+    $("#global").DataTable();
+    $('#indonesia').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": false,
+      "info": false,
+      "autoWidth": true,
+      "scrollY": 50,
+      "scrollX": true,
+    });
+  });
+</script> --}}
+        <script>
+            $(function() {
+                $('#global').DataTable({
+                    "paging": false,
+                    "lengthChange": true,
+                    "searching": false,
+                    "ordering": false,
+                    "info": false,
+                    "autoWidth": true,
+                    "scrollY": 450,
+                    "scrollX": true,
+                });
+                $('#indonesia').DataTable({
+                    "paging": false,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": false,
+                    "autoWidth": false,
+                    "scrollY": 50,
+                    "scrollX": true,
+                });
+            });
+        </script>
+
+        @endsection

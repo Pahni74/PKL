@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Provinsi;
 use App\Models\Kota;
+use App\Models\Kecamatan;
 use App\Models\Tracking;
 use App\Charts\CovidChart;
 use DB;
@@ -25,7 +26,7 @@ class FrontendController extends Controller
             ->join('kelurahans','kecamatans.id','=','kelurahans.kecamatan_id')
             ->join('rws','kelurahans.id','=','rws.kelurahan_id')
             ->join('trackings','rws.id','=','trackings.rw_id')
-            ->groupBy('provinsis.id')
+            ->groupBy('provinsis.id')->orderBy('nama_provinsi','ASC')
             ->get();
         // $provinsi = DB::table('provinsis') ->select('provinsis.kode_provinsi','provinsis.nama_provinsi',
         // DB::raw('SUM(trackings.jumlah_positif) as positif'),
@@ -75,16 +76,17 @@ class FrontendController extends Controller
             $chart->dataset('Meninggal', 'bar',$tkmeninggal->values())->backgroundColor('red');
 
             return view('frontend.index', compact('title','chart','provinsi','case_positif','case_sembuh','case_meninggal','positif','sembuh','meninggal','tanggal','dunia'));
+            // ,'positif','sembuh','meninggal','tanggal','dunia'
     }
     public function api()
     {
         $title = "Tracking Covid Api";
         return view('frontend.pageapi', compact('title'));
     }
-    public function getKotaProvinsi($id)
+     public function getKotaProvinsi($id)
     {
 
-        $jumlah_positif = DB::table('kotas')
+        $positif = DB::table('kotas')
             ->select('kotas.nama_kota', 'kotas.kode_kota',
                 DB::raw('sum(trackings.jumlah_positif) as positif'),
                 DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
@@ -98,7 +100,7 @@ class FrontendController extends Controller
             ->groupBy('kotas.id')
             ->sum('trackings.jumlah_positif');
 
-        $jumlah_sembuh = DB::table('kotas')
+        $sembuh = DB::table('kotas')
             ->select('kotas.nama_kota', 'kotas.kode_kota',
                 DB::raw('sum(trackings.jumlah_positif) as positif'),
                 DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
@@ -112,7 +114,7 @@ class FrontendController extends Controller
             ->groupBy('kotas.id')
             ->sum('trackings.jumlah_sembuh');
 
-        $jumlah_meninggal = DB::table('kotas')
+        $meninggal = DB::table('kotas')
             ->select('kotas.nama_kota', 'kotas.kode_kota',
                 DB::raw('sum(trackings.jumlah_positif) as positif'),
                 DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
@@ -139,15 +141,19 @@ class FrontendController extends Controller
             ->where('provinsis.id', $id)
             ->groupBy('kotas.id')
             ->get();
-        // dd($jumlah_positif);
-        $provinsis = Provinsi::findOrFail($id);
-        return view('frontend.singleProvinsi', compact('datas', 'jumlah_sembuh', 'jumlah_meninggal', 'jumlah_positif', 'provinsis'));
+        // dd($positif);
+        $provinsi = Provinsi::findOrFail($id);
+        $title = "Tracking Covid";
+        $case_positif = DB::table('trackings')->sum('trackings.jumlah_positif');
+        $case_sembuh = DB::table('trackings')->sum('trackings.jumlah_sembuh');
+        $case_meninggal = DB::table('trackings')->sum('trackings.jumlah_meninggal');
+        return view('frontend.singleProvinsi', compact('title','datas', 'sembuh', 'meninggal', 'positif', 'provinsi','case_positif','case_sembuh','case_meninggal'));
     }
 
     public function getKecamatanKota($id)
     {
 
-        $jumlah_positif = DB::table('kecamatans')
+        $positif = DB::table('kecamatans')
             ->select('kecamatans.nama_kecamatan',
                 DB::raw('sum(trackings.jumlah_positif) as positif'),
                 DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
@@ -160,7 +166,7 @@ class FrontendController extends Controller
             ->groupBy('kecamatans.id')
             ->sum('trackings.jumlah_positif');
 
-        $jumlah_sembuh = DB::table('kotas')
+        $sembuh = DB::table('kotas')
             ->select('kecamatans.nama_kecamatan',
                 DB::raw('sum(trackings.jumlah_positif) as positif'),
                 DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
@@ -174,7 +180,7 @@ class FrontendController extends Controller
             ->groupBy('kecamatans.id')
             ->sum('trackings.jumlah_sembuh');
 
-        $jumlah_meninggal = DB::table('kotas')
+        $meninggal = DB::table('kotas')
             ->select('kecamatans.nama_kecamatan',
                 DB::raw('sum(trackings.jumlah_positif) as positif'),
                 DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
@@ -200,8 +206,75 @@ class FrontendController extends Controller
             ->where('kotas.id', $id)
             ->groupBy('kecamatans.id')
             ->get();
-        // dd($jumlah_positif);
-        $kotas = Kota::findOrFail($id);
-        return view('singleKota', compact('datas', 'jumlah_sembuh', 'jumlah_meninggal', 'jumlah_positif', 'kotas'));
+        // dd($positif);
+        $kota = Kota::findOrFail($id);
+        $title = "Tracking Covid";
+        $case_positif = DB::table('trackings')->sum('trackings.jumlah_positif');
+        $case_sembuh = DB::table('trackings')->sum('trackings.jumlah_sembuh');
+        $case_meninggal = DB::table('trackings')->sum('trackings.jumlah_meninggal');
+        return view('frontend.singleKota', compact('datas', 'sembuh', 'meninggal', 'positif', 'kota','case_positif','case_sembuh','case_meninggal','title'));
+    }
+
+    public function getKelurahanKecamatan($id)
+    {
+
+       $positif = DB::table('kelurahans')
+            ->select('kelurahans.nama_kelurahan',
+                DB::raw('sum(trackings.jumlah_positif) as positif'),
+                DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
+                DB::raw('sum(trackings.jumlah_meninggal) as meninggal'))
+            // ->join('kotas', 'kotas.id', '=', 'kecamatans.kota_id')
+            // ->join('kecamatans', 'kotas.id', '=', 'kecamatans.kota_id')
+            ->join('rws', 'kelurahans.id', '=', 'rws.kelurahan_id')
+            ->join('trackings', 'rws.id', '=', 'trackings.rw_id')
+            ->where('kecamatans.id', $id)
+            ->groupBy('kelurahans.id')
+            ->sum('trackings.jumlah_positif');
+
+        $sembuh = DB::table('kecamatans')
+            ->select('kelurahans.nama_kelurahan',
+                DB::raw('sum(trackings.jumlah_positif) as positif'),
+                DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
+                DB::raw('sum(trackings.jumlah_meninggal) as meninggal'))
+                // ->join('provinsis','provinsis.id','=','kotas.provinsi_id')
+                // ->join('kecamatans', 'kotas.id', '=', 'kecamatans.kota_id')
+            ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.kecamatan_id')
+            ->join('rws', 'kelurahans.id', '=', 'rws.kelurahan_id')
+            ->join('trackings', 'rws.id', '=', 'trackings.rw_id')
+            ->where('kecamatans.id', $id)
+            ->groupBy('kelurahans.id')
+            ->sum('trackings.jumlah_sembuh');
+
+              $meninggal = DB::table('kecamatans')
+            ->select('kelurahans.nama_kelurahan',
+                DB::raw('sum(trackings.jumlah_positif) as positif'),
+                DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
+                DB::raw('sum(trackings.jumlah_meninggal) as meninggal'))
+                // ->join('provinsis','provinsis.id','=','kotas.provinsi_id')
+                // ->join('kecamatans', 'kotas.id', '=', 'kecamatans.kota_id')
+            ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.kecamatan_id')
+            ->join('rws', 'kelurahans.id', '=', 'rws.kelurahan_id')
+            ->join('trackings', 'rws.id', '=', 'trackings.rw_id')
+            ->where('kecamatans.id', $id)
+            ->groupBy('kelurahans.id')
+            ->sum('trackings.jumlah_meninggal');
+
+        $datas = DB::table('kelurahans')
+            ->select('kelurahans.nama_kelurahan',
+                DB::raw('sum(trackings.jumlah_positif) as positif'),
+                DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
+                DB::raw('sum(trackings.jumlah_meninggal) as meninggal'))
+            ->join('rws', 'kelurahans.id', '=', 'rws.kelurahan_id')
+            ->join('trackings', 'rws.id', '=', 'trackings.rw_id')
+            ->where('kecamatans.id', $id)
+            ->groupBy('kelurahans.id')
+            ->get();
+        // dd($positif);
+        $kecamatan = Kecamatan::findOrFail($id);
+        $title = "Tracking Covid";
+        $case_positif = DB::table('trackings')->sum('trackings.jumlah_positif');
+        $case_sembuh = DB::table('trackings')->sum('trackings.jumlah_sembuh');
+        $case_meninggal = DB::table('trackings')->sum('trackings.jumlah_meninggal');
+        return view('frontend.singleKecamatan', compact('datas', 'sembuh', 'meninggal', 'positif', 'kecamatan','case_positif','case_sembuh','case_meninggal','title'));
     }
 }

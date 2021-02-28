@@ -12,6 +12,14 @@
             <!-- COL END -->
 </div>
         <br>
+         <div class="card mb-4">
+        <div class="card">
+            <div class="card-header">Indonesia API</div>
+                <div class="card-body">
+                    <a href="http://trackingcovidid.herokuapp.com/api/indonesia">http://trackingcovidid.herokuapp.com/api/indonesia</a>
+                </div>
+        </div>
+    </div>
     <div class="card mb-4">
         <div class="card">
             <div class="card-header">Provinsi API</div>

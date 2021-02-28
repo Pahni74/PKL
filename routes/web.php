@@ -11,8 +11,9 @@ use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\FrontendController;
 
 Route::get('/',[FrontendController::class,'index']);
-// Route::get('/provinsi/{id}',[FrontendController::class,'getKotaProvinsi']);
-// Route::get('/kota/{id}',[FrontendController::class,'getKecamatanKota']);
+Route::get('/provinsi/{id}',[FrontendController::class,'getKotaProvinsi']);
+Route::get('/kota/{id}',[FrontendController::class,'getKecamatanKota']);
+Route::get('/kecamatan/{id}',[FrontendController::class,'getKelurahanKecamatan']);
 Route::get('/pageapi',[FrontendController::class,'api']);
 Auth::routes(['register' => false]);
 

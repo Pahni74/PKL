@@ -16,7 +16,7 @@
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL POSITIF</p>
                                     <h2 class="mb-0 number-font">
-                                        {{ $case_positif }}
+                                        <?php //echo $positif['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -32,7 +32,7 @@
                             <div class="d-flex">
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL SEMBUH</p>
-                                    <h2 class="mb-0 number-font">{{ $case_sembuh }}
+                                    <h2 class="mb-0 number-font"><?php //echo $sembuh['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -48,7 +48,7 @@
                             <div class="d-flex">
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL MENINGGAL</p>
-                                    <h2 class="mb-0 number-font">{{ $case_meninggal }}
+                                    <h2 class="mb-0 number-font"><?php //echo $meninggal['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -77,34 +77,31 @@
         <br>
         <div class="card mb-4">
             <div class="card-header">
-                Data Coronavirus Berdasarkan Kota di Negara Indonesia
+                Data Coronavirus Berdasarkan Kelurahan di Negara Indonesia
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example2" class="table table-bordered table-hover" width="100%" cellspacing="0">
-                        <thead>
-                            <tr class="bg-black">
+                      <thead>
+                           <tr class="bg-black">
                                 <th>No</th>
-                                <th>Nama Kota</th>
-                                <th>Kode Kota</th>
+                                <th>Nama Kelurahan</th>
                                 <th>Positif</th>
                                 <th>Sembuh</th>
                                 <th>Meninggal</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @php $no=1; @endphp
-                                    @foreach ($datas as $data)
-                                        <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td><a href="/kota/{{ $data->id }}">{{ $data->nama_kota }}</a>
-                                            </td>
-                                            <td>{{ $data->kode_kota }}</td>
-                                            <td>{{ $data->positif }}</td>
-                                            <td>{{ $data->sembuh }}</td>
-                                            <td>{{ $data->meninggal }}</td>
-                                        </tr>
-                                    @endforeach
+                            <tbody>
+                                @php $no=1; @endphp
+                                @foreach ($datas as $data)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->nama_kelurahan }}</td>
+                                        <td>{{ $data->positif }}</td>
+                                        <td>{{ $data->sembuh }}</td>
+                                        <td>{{ $data->meninggal }}</td>
+                                    </tr>
+                                @endforeach
                         </tbody>
                     </table>
                 </div>

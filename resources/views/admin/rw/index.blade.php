@@ -59,7 +59,7 @@
                                     @foreach($rw as $data)
 
                                         <tr>
-                                            <th scope="row">{{$no++}}</th>
+                                            <td scope="row">{{$no++}}</td>
                                             <td>{{$data->kode_rw}}</td>
                                             <td>{{$data->nomer_rw}}</td>
                                             <td>{{$data->kelurahan->nama_kelurahan}}</td>

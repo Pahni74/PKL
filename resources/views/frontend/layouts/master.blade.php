@@ -14,6 +14,7 @@
     </section>
     <footer class="py-4 bg-light mt-auto">
   @include('frontend.layouts.scripts')
+  @yield('scripts')
     </footer>
 </body>
 

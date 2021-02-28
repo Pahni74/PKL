@@ -14,28 +14,3 @@
         <script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
         <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
-
-        <script>
-            $(function() {
-                $('#example1').DataTable({
-                    "paging": false,
-                    "lengthChange": false,
-                    "searching": false,
-                    "ordering": false,
-                    "info": false,
-                    "autoWidth": false,
-                    "scrollY": 450,
-                    "scrollX": true,
-                });
-                $('#example2').DataTable({
-                    "paging": false,
-                    "lengthChange": false,
-                    "searching": false,
-                    "ordering": false,
-                    "info": false,
-                    "autoWidth": false,
-                    "scrollY": 50,
-                    "scrollX": true,
-                });
-            });
-        </script>

@@ -16,7 +16,7 @@
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL POSITIF</p>
                                     <h2 class="mb-0 number-font">
-                                        <?php echo $positif['value'] ?>
+                                        <?php //echo $positif['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -32,7 +32,7 @@
                             <div class="d-flex">
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL SEMBUH</p>
-                                    <h2 class="mb-0 number-font"><?php echo $sembuh['value'] ?>
+                                    <h2 class="mb-0 number-font"><?php //echo $sembuh['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -48,7 +48,7 @@
                             <div class="d-flex">
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL MENINGGAL</p>
-                                    <h2 class="mb-0 number-font"><?php echo $meninggal['value'] ?>
+                                    <h2 class="mb-0 number-font"><?php //echo $meninggal['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -64,7 +64,7 @@
                             <div class="d-flex">
                                 <div class="text-white">
                                     <h2 class="text-white mb-0">INDONESIA</h2>
-                                    <p class="mb-0 number-font"><b>{{$jumlah_positif}}</b> POSITIF, <b>{{$jumlah_sembuh}}</b> SEMBUH, <b>{{$jumlah_meninggal}}</b> MENINGGAL</p>
+                                    <p class="mb-0 number-font"><b>{{$case_positif}}</b> POSITIF, <b>{{$case_sembuh}}</b> SEMBUH, <b>{{$case_meninggal}}</b> MENINGGAL</p>
                                 </div>
                                 <div class="ml-auto"> <img src="{{asset('adminLTE/img/indonesia.png')}}" width="50" height="50" alt="Positif"> </div>
                             </div>
@@ -77,30 +77,31 @@
         <br>
         <div class="card mb-4">
             <div class="card-header">
-                Data Coronavirus Berdasarkan Kota di Negara Indonesia
+                Data Coronavirus Berdasarkan Kecamatan di Negara Indonesia
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example2" class="table table-bordered table-hover" width="100%" cellspacing="0">
-                        <thead>
-                            <tr class="bg-black">
-                                <th scope="col">NO</th>
-                                <th scope="col">KOTA</th>
-                                <th scope="col">POSITIF</th>
-                                <th scope="col">SEMBUH</th>
-                                <th scope="col">MENINGGAL</th>
+                      <thead>
+                           <tr class="bg-black">
+                                <th>No</th>
+                                <th>Nama Kecamatan</th>
+                                <th>Positif</th>
+                                <th>Sembuh</th>
+                                <th>Meninggal</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @php $no=1; @endphp @foreach($kota as $data)
-                            <tr>
-                                <td>{{$no++}}</td>
-                                <td><a href="/kota/{{ $data->id }}">{{ $data->nama_kota }}</a>
-                                <td>{{$data->positif}}</td>
-                                <td>{{$data->sembuh}}</td>
-                                <td>{{$data->meninggal}}</td>
-                            </tr>
-                            @endforeach
+                            <tbody>
+                                @php $no=1; @endphp
+                                @foreach ($datas as $data)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->nama_kecamatan }}</td>
+                                        <td>{{ $data->positif }}</td>
+                                        <td>{{ $data->sembuh }}</td>
+                                        <td>{{ $data->meninggal }}</td>
+                                    </tr>
+                                @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Tracking;
 use DB;
 use Illuminate\Support\Facades\Http;
 class ApiController extends Controller
@@ -190,7 +191,7 @@ class ApiController extends Controller
             DB::raw('sum(kasuses.sembuh) as sembuh'), DB::raw('sum(kasuses.meninggal) as meninggal'))
         ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
         ->join('rws', 'kelurahans.id', '=', 'rws.id_kelurahan')
-        ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+        ->join('kasuses', 'rws.id', '=', 'kasuses.rw_id')
         ->where('kecamatans.id', $id)
         ->first();
 
@@ -199,7 +200,7 @@ class ApiController extends Controller
             DB::raw('sum(kasuses.sembuh) as sembuh'), DB::raw('sum(kasuses.meninggal) as meninggal'))
         ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
         ->join('rws', 'kelurahans.id', '=', 'rws.id_kelurahan')
-        ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+        ->join('kasuses', 'rws.id', '=', 'kasuses.rw_id')
         ->where('kecamatans.id', $id)->whereDate('kasuses.tanggal', Carbon::today())
         ->first();
         // dd($singelkecamatan);
@@ -248,7 +249,7 @@ class ApiController extends Controller
         ->select('kelurahans.nama_kelurahan', 'kelurahans.kode_kelurahan', DB::raw('sum(kasuses.positif) as positif'),
             DB::raw('sum(kasuses.sembuh) as sembuh'), DB::raw('sum(kasuses.meninggal) as meninggal'))
         ->join('rws', 'kelurahans.id', '=', 'rws.id_kelurahan')
-        ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+        ->join('kasuses', 'rws.id', '=', 'kasuses.rw_id')
         ->where('kelurahans.id', $id)
         ->first();
 
@@ -256,7 +257,7 @@ class ApiController extends Controller
         ->select('kelurahans.nama_kelurahan', 'kelurahans.kode_kelurahan', DB::raw('sum(kasuses.positif) as positif'),
             DB::raw('sum(kasuses.sembuh) as sembuh'), DB::raw('sum(kasuses.meninggal) as meninggal'))
         ->join('rws', 'kelurahans.id', '=', 'rws.id_kelurahan')
-        ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+        ->join('kasuses', 'rws.id', '=', 'kasuses.rw_id')
         ->where('kelurahans.id', $id)->whereDate('kasuses.tanggal', Carbon::today())
         ->first();
         // dd($singelkelurahan);
@@ -300,14 +301,14 @@ class ApiController extends Controller
         $allDay = DB::table('rws')
         ->select('rws.nomer_rw', 'rws.kode_rw', DB::raw('sum(kasuses.positif) as positif'),
             DB::raw('sum(kasuses.sembuh) as sembuh'), DB::raw('sum(kasuses.meninggal) as meninggal'))
-        ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+        ->join('kasuses', 'rws.id', '=', 'kasuses.rw_id')
         ->where('rws.id', $id)
         ->first();
 
     $today = DB::table('rws')
         ->select('rws.nomer_rw', 'rws.kode_rw', DB::raw('sum(kasuses.positif) as positif'),
             DB::raw('sum(kasuses.sembuh) as sembuh'), DB::raw('sum(kasuses.meninggal) as meninggal'))
-        ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+        ->join('kasuses', 'rws.id', '=', 'kasuses.rw_id')
         ->where('rws.id', $id)->whereDate('kasuses.tanggal', Carbon::today())
         ->first();
         // dd($singelrw);
@@ -324,28 +325,48 @@ class ApiController extends Controller
 
     }
     public function Indonesia(){
-        $positif = DB::table('trackings')
-                        ->sum('trackings.jumlah_positif');
+        $positif = Tracking::sum('jumlah_positif');
+        $sembuh  = Tracking::sum('jumlah_sembuh');
+        $meninggal  = Tracking::sum('jumlah_meninggal');
 
-        $sembuh = DB::table('trackings')
-                        ->sum('trackings.jumlah_sembuh');
-
-        $meninggal = DB::table('trackings')
-                        ->sum('trackings.jumlah_meninggal');
-
-        $this->data = [
-            'name' => 'Indonesia',
-            'positif' => $positif,
-            'sembuh' => $sembuh,
-            'meninggal' => $meninggal,
-        ];
-
-        $data = [
+        $response= [
             'success' => true,
-            'data' => $this->data,
+            'data' => [
+                        [
+                            "name" => "Indonesia",
+                            'positif'=>$positif,
+                            'sembuh'=>$sembuh,
+                            'meninggal'=>$meninggal,
+                        ],
+        ],
             'message' => 'berhasil',
         ];
-        return response()->json($data, 200);
+        return response()->json($response);
+        //  $positif = DB::table('rws')->select('trackings.jumlah_positif', 'trackings.jumlah_sembuh', 'trackings.jumlah_meninggal')
+        //             ->join('trackings', 'rws.id', '=', 'trackings.rw_id')
+        //             ->sum('trackings.jumlah_positif');
+        // $sembuh = DB::table('rws')->select('trackings.jumlah_sembuh', 'trackings.jumlah_sembuh', 'trackings.jumlah_meninggal')
+        //             ->join('trackings', 'rws.id', '=', 'trackings.rw_id')
+        //             ->sum('trackings.jumlah_sembuh');
+        // $meninggal = DB::table('rws')->select('trackings.jumlah_meninggal', 'trackings.sembuh', 'trackings.jumlah_meninggal')
+        //             ->join('trackings', 'rws.id', '=', 'trackings.rw_id')
+        //             ->sum('trackings.jumlah_meninggal');
+
+        // $this->data = [
+        //     'name' => 'Indonesia',
+        //     'positif' => $positif,
+        //     'sembuh' => $sembuh,
+        //     'meninggal' => $meninggal,
+        // ];
+        // $data = [
+        //     'success' => true,
+        //     'data' => [
+        //           $this->data,
+        //       ],
+
+        //     'message' => 'Berhasil'
+        // ];
+        // return response()->json($data,200);
 
     }
     public function positif()
