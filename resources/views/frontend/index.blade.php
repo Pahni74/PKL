@@ -143,7 +143,7 @@
                             @foreach($provinsi as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td><a href="/provinsi/{{ $data->id }}">{{ $data->nama_provinsi }}</a></td>
+                                <td>{{$data->nama_provinsi}}</td>
                                 <td>{{$data->positif}}</td>
                                 <td>{{$data->sembuh}}</td>
                                 <td>{{$data->meninggal}}</td>
