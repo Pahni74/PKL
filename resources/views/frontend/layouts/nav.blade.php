@@ -9,7 +9,7 @@
                     <a class="nav-link" aria-current="page" href="{{ url('/') }}"> <i class="fas fa-home"></i> Dashboard</a>
                     </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/pageapi') }}"><i class="fas fa-terminal"></i> Api</a>
+                <a class="nav-link" href="{{ url('/pageapi') }}"><i class="fas fa-terminal"></i> Api For Developers</a>
              </li>
         </ul>
     </div>

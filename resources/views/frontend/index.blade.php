@@ -16,8 +16,8 @@
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL POSITIF</p>
                                     <h2 class="mb-0 number-font">
-                                        {{ $case_positif }}
-                                        <?php //echo $positif['value'] ?>
+                                        {{-- {{ $case_positif }} --}}
+                                        <?php echo $positif['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -34,8 +34,8 @@
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL SEMBUH</p>
                                     <h2 class="mb-0 number-font">
-                                        {{ $case_sembuh}}
-                                        <?php //echo $sembuh['value'] ?>
+                                        {{-- {{ $case_sembuh}} --}}
+                                        <?php echo $sembuh['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -52,8 +52,8 @@
                                 <div class="text-white">
                                     <p class="text-white mb-0">TOTAL MENINGGAL</p>
                                     <h2 class="mb-0 number-font">
-                                        {{ $case_meninggal }}
-                                        <?php //echo $meninggal['value'] ?>
+                                        {{-- {{ $case_meninggal }} --}}
+                                        <?php echo $meninggal['value'] ?>
                                     </h2>
                                     <p class="text-white mb-0">ORANG</p>
                                 </div>
@@ -113,15 +113,15 @@
                         </thead>
                         <tbody>
                             @php $no=1; @endphp
-                                    {{-- @foreach ($dunia as $data => $val) --}}
+                                     @foreach ($dunia as $data => $val)
                                         <tr>
-                                            {{-- <td>{{ $no++ }}</td>
+                                             <td>{{ $no++ }}</td>
                                             <td>{{ $val['attributes']['Country_Region'] }}</td>
                                             <td>{{ $val['attributes']['Confirmed'] }}</td>
                                             <td>{{ $val['attributes']['Recovered'] }}</td>
-                                            <td>{{ $val['attributes']['Deaths'] }}</td> --}}
+                                            <td>{{ $val['attributes']['Deaths'] }}</td>
                                         </tr>
-                                    {{-- @endforeach --}}
+                                     @endforeach
                         </tbody>
                     </table>
                 </div>
