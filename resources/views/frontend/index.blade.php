@@ -5,7 +5,7 @@
                 <div class="container">
                     <br>
                     <h1 class="display-4 text-center">TRACKING COVID</h1>
-                    <p class="lead m-0 text-center">Coronavirus Global &amp; Indonesia Live Data</p>
+                    <p class="lead m-0 text-center">Coronavirus Global &amp; Indonesia</p>
                 </div>
             </div>
             <div class="row">
