@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="card bg-warning img-card box-primary-shadow">
                         <div class="card-body">
                             <div class="d-flex">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <!-- COL END -->
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="card bg-success img-card box-secondary-shadow">
                         <div class="card-body">
                             <div class="d-flex">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <!-- COL END -->
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="card  bg-red img-card box-success-shadow">
                         <div class="card-body">
                             <div class="d-flex">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <!-- COL END -->
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                {{-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card  bg-info img-card box-success-shadow">
                         <div class="card-body">
                             <div class="d-flex">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- COL END -->
             </div>
             <!-- COL END -->
@@ -95,7 +95,7 @@
                 {!! $chart->script() !!}
             </div>
         </div>
-          <div class="card mb-4">
+          {{-- <div class="card mb-4">
             <div class="card-header">
                 Data Global Coronavirus
             </div>
@@ -111,7 +111,7 @@
                                 <th scope="col">MENINGGAL</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody> --}}
                             @php $no=1; @endphp
                                     {{-- @foreach ($dunia as $data => $val) --}}
                                         <tr>
@@ -122,11 +122,11 @@
                                             <td>{{ $val['attributes']['Deaths'] }}</td> --}}
                                         </tr>
                                     {{-- @endforeach --}}
-                        </tbody>
+                        {{-- </tbody>
                     </table>
                 </div>
             </div>
-        </div>
+        </div> --}}
           <div class="card mb-4">
             <div class="card-header">
                 Data Coronavirus Berdasarkan Provinsi di Negara Indonesia
@@ -194,7 +194,7 @@
                 $('#indonesia').DataTable({
                     "paging": false,
                     "lengthChange": false,
-                    "searching": false,
+                    "searching": true,
                     "ordering": false,
                     "info": false,
                     "autoWidth": false,
